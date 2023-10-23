@@ -35,9 +35,11 @@ public class PlayerMovement : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
             Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
-            float magnitude = Mathf.Clamp01 (movementDirection.magnitude) * speed;
+            float magnitude = (movementDirection.magnitude) * speed;
+            Mathf.Clamp01(magnitude);
             movementDirection.Normalize();
-            characterController.SimpleMove(movementDirection * magnitude);
+                
+                characterController.SimpleMove(movementDirection * magnitude);
 
         if (movementDirection != Vector3.zero)
         {
