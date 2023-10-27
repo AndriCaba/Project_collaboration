@@ -21,9 +21,11 @@ public class PlayerAttack : MonoBehaviour
     {
         Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
         Debug.Log("attacking the enemy");
+
         foreach (Collider enemy in hitEnemies)
         {
-            // Assuming the enemy has a script called "EnemyHealth" with a TakeDamage function
+
+           
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
 
             if (enemyHealth != null)
@@ -32,4 +34,5 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
+  
 }

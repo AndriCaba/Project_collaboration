@@ -1737,7 +1737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28c083dd2a002a44b85fe87d34dcf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 1061087058}
+  slider: {fileID: 0}
 --- !u!1 &1162468961
 GameObject:
   m_ObjectHideFlags: 0
@@ -2643,6 +2643,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ac83acc7ddcc9264eba517a4e2033295, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1441960728}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ac83acc7ddcc9264eba517a4e2033295, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1441960731}
   m_SourcePrefab: {fileID: 100100000, guid: ac83acc7ddcc9264eba517a4e2033295, type: 3}
 --- !u!1 &1441960726 stripped
 GameObject:
@@ -2723,6 +2726,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1441960731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441960726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5215f953c411d941a547227f9c43473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthbar: {fileID: 1552216836}
 --- !u!1 &1451381395
 GameObject:
   m_ObjectHideFlags: 0
@@ -3267,7 +3284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   healthbar: {fileID: 1061087059}
 --- !u!114 &1515109752
 MonoBehaviour:
@@ -3281,7 +3298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f708d0b1694da26438e0acd9e8975241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 2.48
+  attackRange: 3
   attackDamage: 10
   enemyLayer:
     serializedVersion: 2
@@ -3386,7 +3403,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.889
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3828,6 +3845,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ac83acc7ddcc9264eba517a4e2033295, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1815334202}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ac83acc7ddcc9264eba517a4e2033295, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1815334205}
   m_SourcePrefab: {fileID: 100100000, guid: ac83acc7ddcc9264eba517a4e2033295, type: 3}
 --- !u!1 &1815334200 stripped
 GameObject:
@@ -3908,6 +3928,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1815334205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815334200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5215f953c411d941a547227f9c43473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthbar: {fileID: 1400310924}
 --- !u!1 &1840884300
 GameObject:
   m_ObjectHideFlags: 0
@@ -4424,6 +4458,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ac83acc7ddcc9264eba517a4e2033295, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2095227786}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ac83acc7ddcc9264eba517a4e2033295, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2095227789}
   m_SourcePrefab: {fileID: 100100000, guid: ac83acc7ddcc9264eba517a4e2033295, type: 3}
 --- !u!1 &2095227784 stripped
 GameObject:
@@ -4504,6 +4541,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2095227789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095227784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5215f953c411d941a547227f9c43473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthbar: {fileID: 1294892449}
 --- !u!1 &2110352791
 GameObject:
   m_ObjectHideFlags: 0
