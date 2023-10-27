@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 151212693}
   m_Layer: 3
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Untargetable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1919,6 +1919,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlight: {fileID: 0}
   selection: {fileID: 0}
+  selectableObjectsLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &1237358586
 Transform:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class OutlineSelection : MonoBehaviour
     public  Transform highlight;
     public Transform selection;
     public RaycastHit raycastHit;
+    public LayerMask selectableObjectsLayer;
 
     void Update()
     {
@@ -35,6 +36,12 @@ public class OutlineSelection : MonoBehaviour
             {
               
                 HandleHighlightObject(highlight);
+            }
+           else if (!highlight.CompareTag("Selectable") )
+            {
+               
+                
+                highlight = null;
             }
         }
     }
