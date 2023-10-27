@@ -21,11 +21,7 @@ public class Health : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-
-            TakeDamage(20);
-        
-        }
+      
 
     
     }

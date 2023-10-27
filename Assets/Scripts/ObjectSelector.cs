@@ -1,27 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ObjectSelector : MonoBehaviour
 {
-    public LockOnCamera cameraController;
-    public LayerMask selectableObjectsLayer;
-    public GameObject canvas;
+    public LockOnCamera cameraController; // Reference to your camera controller script
+    public LayerMask selectableObjectsLayer; // Layer mask for selectable objects
+    public GameObject canvas; // The canvas to show/hide when an object is selected
 
-    public bool isCanvasVisible = false;
+    private bool isCanvasVisible = false; // Track the canvas visibility
 
     private void Start()
     {
-        canvas.SetActive(false);
-
-
+        canvas.SetActive(false); // Initially hide the canvas
     }
 
     private void Update()
     {
-
-        if (Input.GetMouseButtonDown(0)) // Assuming left mouse button click.
+        if (Input.GetMouseButtonDown(0)) // Left mouse button click
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -30,26 +26,21 @@ public class ObjectSelector : MonoBehaviour
             {
                 Transform selectedObject = hit.transform;
 
-
-                canvas.SetActive(true);
-
-
+                // Toggle canvas visibility when an object is selected
+                isCanvasVisible = !isCanvasVisible;
+                canvas.SetActive(isCanvasVisible);
 
                 if (!selectedObject.CompareTag("Untargetable"))
                 {
                     cameraController.SetTarget(selectedObject);
-
-
                 }
-
             }
-            isCanvasVisible = !isCanvasVisible;
-
         }
-        if (Input.GetMouseButtonDown(1)) // Assuming right mouse button click to clear the target.
+
+        if (Input.GetMouseButtonDown(1)) // Right mouse button click to clear the target
         {
             canvas.SetActive(false);
-
+            isCanvasVisible = false;
             cameraController.ClearTarget();
         }
     }

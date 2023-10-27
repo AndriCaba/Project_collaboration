@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LockOnCamera : MonoBehaviour
@@ -9,7 +7,6 @@ public class LockOnCamera : MonoBehaviour
     private Quaternion originalRotation;
     public float smoothSpeed = 5f; // Adjust this to control camera follow speed.
     public Vector3 offset; // Offset from the target.
-
 
     private void Start()
     {
@@ -22,21 +19,26 @@ public class LockOnCamera : MonoBehaviour
         if (target == null)
         {
             // Restore original position and rotation when untargeted.
-            transform.position = originalPosition;
-            transform.rotation = originalRotation;
-            return;
+            if (transform.position != originalPosition)
+            {
+                transform.position = Vector3.Lerp(transform.position, originalPosition, smoothSpeed * Time.deltaTime);
+            }
+            if (transform.rotation != originalRotation)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, smoothSpeed * Time.deltaTime);
+            }
         }
+        else
+        {
+            // Calculate the desired camera position.
+            Vector3 desiredPosition = target.position + offset;
 
-        // Calculate the desired camera position.
-        Vector3 desiredPosition = target.position + offset;
+            // Smoothly interpolate the current camera position towards the desired position.
+            transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
 
-        // Smoothly interpolate the current camera position towards the desired position.
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-
-        transform.position = smoothedPosition;
-
-        // Make the camera look at the target.
-        transform.LookAt(target);
+            // Make the camera look at the target.
+            transform.LookAt(target);
+        }
     }
 
     // Set the target when an object is clicked.
@@ -44,9 +46,9 @@ public class LockOnCamera : MonoBehaviour
     {
         target = newTarget;
     }
+
     public void ClearTarget()
     {
         target = null;
     }
 }
-
