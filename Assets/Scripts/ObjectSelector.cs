@@ -29,7 +29,7 @@ public class ObjectSelector : MonoBehaviour
                 // Toggle canvas visibility when an object is selected
                 isCanvasVisible = !isCanvasVisible;
                 canvas.SetActive(isCanvasVisible);
-
+               
                 if (!selectedObject.CompareTag("Untargetable"))
                 {
                     cameraController.SetTarget(selectedObject);
