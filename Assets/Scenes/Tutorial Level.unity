@@ -3050,7 +3050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  rotationSpeed: 720
+  rotationSpeed: 1000
   dashSpeed: 0.2
   dashTime: 0.5
   keyToDisable: 32
