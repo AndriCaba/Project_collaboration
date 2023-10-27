@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class ObjectSelector : MonoBehaviour
+
+
 {
+
+
     public LockOnCamera cameraController; // Reference to your camera controller script
     public LayerMask selectableObjectsLayer; // Layer mask for selectable objects
     public GameObject canvas; // The canvas to show/hide when an object is selected
@@ -19,6 +23,7 @@ public class ObjectSelector : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // Left mouse button click
         {
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 

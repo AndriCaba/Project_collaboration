@@ -1536,6 +1536,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1652,6 +1653,20 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c08b40327385b046b48bbd4f0a6be56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothSpeed: 5
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &982218933
 GameObject:
   m_ObjectHideFlags: 3
@@ -2032,7 +2047,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1237358586}
   - component: {fileID: 1237358585}
-  - component: {fileID: 1237358587}
   m_Layer: 0
   m_Name: Outline selection
   m_TagString: Untagged
@@ -2067,23 +2081,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 514111223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1237358587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237358584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4bc084c1c57ce74a80e01b3b79fc2f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraController: {fileID: 0}
-  selectableObjectsLayer:
-    serializedVersion: 2
-    m_Bits: 1
-  canvas: {fileID: 639690179}
 --- !u!1 &1257592780
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,7 +3534,7 @@ MonoBehaviour:
   selectableObjectsLayer:
     serializedVersion: 2
     m_Bits: 64
-  canvas: {fileID: 1237358584}
+  canvas: {fileID: 1345234862}
 --- !u!114 &1866128780
 MonoBehaviour:
   m_ObjectHideFlags: 0
