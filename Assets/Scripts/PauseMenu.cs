@@ -51,15 +51,15 @@ public class PauseMenu : MonoBehaviour
     {
 
     }
-
     public void Settings()
     {
 
     }
     public void Quit()
     {
-
+        Debug.Log("QUITTING GAME...");
     }
+
     void EnableScriptsTRUE()
     {
         enemyInteraction1.enabled = true;
