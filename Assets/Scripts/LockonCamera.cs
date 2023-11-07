@@ -8,10 +8,26 @@ public class LockOnCamera : MonoBehaviour
     public float smoothSpeed = 5f; // Adjust this to control camera follow speed.
     public Vector3 offset; // Offset from the target.
 
+    public bool scriptEnabled;
+
     private void Start()
     {
         originalPosition = transform.position;
         originalRotation = transform.rotation;
+    }
+
+    void Update()
+    {
+        if (PauseMenu.GameIsPaused == true)
+        {
+            LockOnCamera lockOnCamera = GetComponent<LockOnCamera>();
+            lockOnCamera.enabled = false;
+        }
+        if (PauseMenu.GameIsPaused == false)
+        {
+            LockOnCamera lockOnCamera = GetComponent<LockOnCamera>();
+            lockOnCamera.enabled = true;
+        }
     }
 
     private void LateUpdate()

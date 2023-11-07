@@ -9,11 +9,23 @@ public class OutlineSelection : MonoBehaviour
     public Transform selection;
     public RaycastHit raycastHit;
     public LayerMask selectableObjectsLayer;
+    public bool scriptEnabled;
 
     void Update()
     {
         HandleHighlighting();
         HandleSelection();
+
+        if (PauseMenu.GameIsPaused == true)
+        {
+            OutlineSelection outlineSelection = GetComponent<OutlineSelection>();
+            outlineSelection.enabled = false;
+        }
+        if (PauseMenu.GameIsPaused == false)
+        {
+            OutlineSelection outlineSelection = GetComponent<OutlineSelection>();
+            outlineSelection.enabled = true;
+        }
     }
 
     void HandleHighlighting()
@@ -105,5 +117,11 @@ public class OutlineSelection : MonoBehaviour
         {
             outline.enabled = false;
         }
+    }
+
+    void scriptOn()
+    {
+        OutlineSelection selection = GetComponent<OutlineSelection>();
+        scriptEnabled = true;
     }
 }

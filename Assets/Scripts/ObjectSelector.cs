@@ -12,6 +12,8 @@ public class ObjectSelector : MonoBehaviour
     public LayerMask selectableObjectsLayer; // Layer mask for selectable objects
     public GameObject canvas; // The canvas to show/hide when an object is selected
 
+    public bool scriptEnabled;
+
     private bool isCanvasVisible = false; // Track the canvas visibility
 
     private void Start()
@@ -39,6 +41,17 @@ public class ObjectSelector : MonoBehaviour
                 {
                     cameraController.SetTarget(selectedObject);
                 }
+            }
+
+            if (PauseMenu.GameIsPaused == true)
+            {
+                ObjectSelector objectSelector = GetComponent<ObjectSelector>();
+                objectSelector.enabled = false;
+            }
+            if (PauseMenu.GameIsPaused == false)
+            {
+                ObjectSelector objectSelector = GetComponent<ObjectSelector>();
+                objectSelector.enabled = true;
             }
         }
 

@@ -6,6 +6,7 @@ public class EnemyInteraction : MonoBehaviour
     public GameObject uiElement; // Reference to your UI element (Image or Text)
     private bool isUIVisible = false;
     private static GameObject currentFocusedEnemy; // Track the currently focused enemy
+    public bool scriptEnabled;
 
     void Update()
     {
@@ -31,6 +32,17 @@ public class EnemyInteraction : MonoBehaviour
                 currentFocusedEnemy.GetComponent<EnemyInteraction>().ToggleUIElement();
                 currentFocusedEnemy = null;
             }
+        }
+
+        if (PauseMenu.GameIsPaused == true)
+        {
+            EnemyInteraction enemyInteraction = GetComponent<EnemyInteraction>();
+            enemyInteraction.enabled = false;
+        }
+        if (PauseMenu.GameIsPaused == false)
+        {
+            EnemyInteraction enemyInteraction = GetComponent<EnemyInteraction>();
+            enemyInteraction.enabled = true;
         }
     }
 
