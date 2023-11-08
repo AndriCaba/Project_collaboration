@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Transform Camera;
 
     public float speed;
     public float rotationSpeed;
@@ -34,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-            Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+            Vector3 movementDirection = new Vector3(horizontalInput, 0f, verticalInput);
             float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed;
             movementDirection.Normalize();
                 
