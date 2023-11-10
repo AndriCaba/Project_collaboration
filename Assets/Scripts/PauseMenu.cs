@@ -58,6 +58,10 @@ public class PauseMenu : MonoBehaviour
     public void Quit()
     {
         Debug.Log("QUITTING GAME...");
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Load the previous scene (subtract 1 from the current index)
+        SceneManager.LoadScene(currentSceneIndex - 1);
     }
 
     void EnableScriptsTRUE()

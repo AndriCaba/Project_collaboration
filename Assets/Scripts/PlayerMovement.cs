@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //public CinemachineVirtualCamera virtualCamera;
+    public CinemachineVirtualCamera virtualCamera;
     public Transform Camera;
 
     public float speed;
