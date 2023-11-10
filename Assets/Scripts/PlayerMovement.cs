@@ -1,19 +1,25 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //public CinemachineVirtualCamera virtualCamera;
     public Transform Camera;
 
     public float speed;
     public float rotationSpeed;
 
-        public float dashSpeed;
-        public float dashTime;
+    //public KeyCode lookRightKey; // Key to make the camera look right
+    //public KeyCode lookLeftKey; // Key to make the camera look left
 
-            private CharacterController characterController;
-            private Animator animator;
+    public float dashSpeed;
+    public float dashTime;
+    
+    CharacterController characterController;
+    private Animator animator;
 
     public KeyCode keyToDisable = KeyCode.Space;
     public float disableTime; // The time in seconds to disable the key
@@ -35,18 +41,22 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-            Vector3 movementDirection = new Vector3(horizontalInput, 0f, verticalInput);
-            float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed;
-            movementDirection.Normalize();
-                
-                characterController.SimpleMove(movementDirection * magnitude);
+        Vector3 cameraForward = Camera.forward;
+        cameraForward.y = 0f;
+
+        Vector3 movementDirection = (cameraForward.normalized * verticalInput  + Camera.right.normalized * horizontalInput);
+        
+        float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed;
+        movementDirection.Normalize();
+
+        characterController.SimpleMove(movementDirection * magnitude);
 
         if (movementDirection != Vector3.zero)
         {
             animator.SetBool("IsMoving", true);
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
 
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
         else
         {
