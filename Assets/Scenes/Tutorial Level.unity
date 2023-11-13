@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 122911977}
   - component: {fileID: 122911979}
   - component: {fileID: 122911980}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Card #1
   m_TagString: Card
   m_Icon: {fileID: 0}
@@ -1522,7 +1522,7 @@ GameObject:
   - component: {fileID: 683723969}
   - component: {fileID: 683723971}
   - component: {fileID: 683723970}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2771,7 +2771,7 @@ GameObject:
   - component: {fileID: 1080961548}
   - component: {fileID: 1080961547}
   - component: {fileID: 1080961546}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Card #2
   m_TagString: Card
   m_Icon: {fileID: 0}
@@ -3417,6 +3417,7 @@ GameObject:
   - component: {fileID: 1245851546}
   - component: {fileID: 1245851550}
   - component: {fileID: 1245851551}
+  - component: {fileID: 1245851552}
   m_Layer: 9
   m_Name: PAUSE MENU
   m_TagString: Untagged
@@ -3538,6 +3539,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d5d0b682aa97748b70ddf830c90b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1245851552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245851545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c50f5c2e6b9cc4e87a7835fb2fbe84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1290292642
 GameObject:
   m_ObjectHideFlags: 0
@@ -3621,9 +3634,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 86dca0a084e1d9f4b81e745cb23c4e2e, type: 3}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1884894007}
+        m_TargetAssemblyTypeName: NewGameLoader, Assembly-CSharp
+        m_MethodName: GoBackScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3789,7 +3802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4594338595561499581, guid: 6e49958232aa9dd4191c65a2273d2236, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6017642712208640626, guid: 6e49958232aa9dd4191c65a2273d2236, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3830,6 +3843,14 @@ PrefabInstance:
     - target: {fileID: 6017642712208640626, guid: 6e49958232aa9dd4191c65a2273d2236, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618319755625307943, guid: 6e49958232aa9dd4191c65a2273d2236, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7680480764425485298, guid: 6e49958232aa9dd4191c65a2273d2236, type: 3}
+      propertyPath: transitionTime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5094,8 +5115,6 @@ MonoBehaviour:
   Camera: {fileID: 963194228}
   speed: 8
   rotationSpeed: 700
-  lookRightKey: 113
-  lookLeftKey: 101
   dashSpeed: 0.2
   dashTime: 0.5
   keyToDisable: 32
@@ -5432,13 +5451,13 @@ GameObject:
   - component: {fileID: 1759985025}
   - component: {fileID: 1759985024}
   - component: {fileID: 1759985023}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Code Card System
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1759985023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6076,7 +6095,7 @@ GameObject:
   - component: {fileID: 1841563994}
   - component: {fileID: 1841563996}
   - component: {fileID: 1841563995}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6212,7 +6231,7 @@ GameObject:
   - component: {fileID: 1847726020}
   - component: {fileID: 1847726019}
   - component: {fileID: 1847726018}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Card #3
   m_TagString: Card
   m_Icon: {fileID: 0}
@@ -6312,7 +6331,7 @@ GameObject:
   - component: {fileID: 1860589578}
   - component: {fileID: 1860589580}
   - component: {fileID: 1860589579}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6542,6 +6561,17 @@ MonoBehaviour:
   smoothSpeed: 5
   offset: {x: 0, y: 0, z: 0}
   scriptEnabled: 0
+--- !u!114 &1884894007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7680480764425485298, guid: 6e49958232aa9dd4191c65a2273d2236, type: 3}
+  m_PrefabInstance: {fileID: 1317137404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86dca0a084e1d9f4b81e745cb23c4e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1985671807
 GameObject:
   m_ObjectHideFlags: 0

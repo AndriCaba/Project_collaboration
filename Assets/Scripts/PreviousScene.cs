@@ -18,8 +18,11 @@ public class NewBehaviourScript : MonoBehaviour
         // Get the index of the current scene
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
+
         // Load the previous scene (subtract 1 from the current index)
         SceneManager.LoadScene(currentSceneIndex - 1);
+
+        PauseMenu.GameIsPaused = false;
     }
 
 }

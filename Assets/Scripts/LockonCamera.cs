@@ -34,15 +34,15 @@ public class LockOnCamera : MonoBehaviour
     {
         if (target == null)
         {
-            //// Restore original position and rotation when untargeted.
-            //if (transform.position != originalPosition)
-            //{
-            //    transform.position = Vector3.Lerp(transform.position, originalPosition, smoothSpeed * Time.deltaTime);
-            //}
-            //if (transform.rotation != originalRotation)
-            //{
-            //    transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, smoothSpeed * Time.deltaTime);
-            //}
+            // Restore original position and rotation when untargeted.
+            if (transform.position != originalPosition)
+            {
+                transform.position = Vector3.Lerp(transform.position, originalPosition, smoothSpeed * Time.deltaTime);
+            }
+            if (transform.rotation != originalRotation)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, smoothSpeed * Time.deltaTime);
+            }
         }
         else
         {
