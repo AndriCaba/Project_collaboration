@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static System.TimeZoneInfo;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PauseMenu : MonoBehaviour
     public OutlineSelection outlineSelection;
     public ObjectSelector objectSelector;
     public LockOnCamera lockOnCamera;
+    public Animator transition;
+    public float transitionTime = 1f;
 
     // Update is called once per frame
     void Update()
@@ -57,11 +60,8 @@ public class PauseMenu : MonoBehaviour
     }
     public void Quit()
     {
-        Debug.Log("QUITTING GAME...");
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        // Load the previous scene (subtract 1 from the current index)
-        SceneManager.LoadScene(currentSceneIndex - 1);
+        StartCoroutine(LoadPreviousLevel(SceneManager.GetActiveScene().buildIndex - 1));
+        Resume();
     }
 
     void EnableScriptsTRUE()
@@ -81,5 +81,14 @@ public class PauseMenu : MonoBehaviour
         outlineSelection.enabled = false;
         objectSelector.enabled = false;
         lockOnCamera.enabled = false;
+    }
+
+    IEnumerator LoadPreviousLevel(int LevelIndex)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(LevelIndex);
     }
 }
