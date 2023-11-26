@@ -7,6 +7,8 @@ TagManager:
   - Selectable
   - Untargetable
   - Card
+  - Hit
+  - Enemy_Hit
   layers:
   - Default
   - TransparentFX

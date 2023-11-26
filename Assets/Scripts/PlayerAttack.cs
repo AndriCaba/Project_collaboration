@@ -6,33 +6,40 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public float attackRange = 1.5f; // Range of the attack
-    public int attackDamage = 10; // Damage dealt per attack
+    public int attackDamage = 100; // Damage dealt per attack
     public LayerMask enemyLayer; // Layer containing the enemy objects
+    private Transform player;
+
+
+
+
+    //fire script 
+    public Transform firepoint;
+    public Transform bulletParent;
+    public GameObject bulletPrefab;
+    public SpriteRenderer spriteRenderer;
+
+
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) // You can change "Fire1" to the input you want to use for attacking (e.g., "Mouse0" for mouse click)
-        {
-            Attack();
-        }
+       
     }
 
-    void Attack()
+public void Attack()
     {
-        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
-        Debug.Log("attacking the enemy");
 
-        foreach (Collider enemy in hitEnemies)
-        {
+        
+        Shoot();
 
-           
-            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(attackDamage);
-            }
-        }
     }
-  
+    void Shoot()
+    {
+
+
+
+        Instantiate(bulletPrefab, firepoint.position, Quaternion.identity);
+
+    }
+
 }
