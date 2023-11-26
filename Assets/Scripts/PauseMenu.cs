@@ -9,9 +9,6 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-    public EnemyInteraction enemyInteraction1;
-    public EnemyInteraction enemyInteraction2;
-    public EnemyInteraction enemyInteraction3;
     public OutlineSelection outlineSelection;
     public ObjectSelector objectSelector;
     public LockOnCamera lockOnCamera;
@@ -66,18 +63,12 @@ public class PauseMenu : MonoBehaviour
 
     void EnableScriptsTRUE()
     {
-        enemyInteraction1.enabled = true;
-        enemyInteraction2.enabled = true;
-        enemyInteraction3.enabled = true;
         outlineSelection.enabled = true;
         objectSelector.enabled = true;
         lockOnCamera.enabled = true;
     }
     void EnableScriptsFALSE()
     {
-        enemyInteraction1.enabled = false;
-        enemyInteraction2.enabled = false;
-        enemyInteraction3.enabled = false;
         outlineSelection.enabled = false;
         objectSelector.enabled = false;
         lockOnCamera.enabled = false;
