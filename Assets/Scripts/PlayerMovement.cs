@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float rotationSpeed;
 
+    public float camRotationSpeed;
+
     //public KeyCode lookRightKey; // Key to make the camera look right
     //public KeyCode lookLeftKey; // Key to make the camera look left
 
@@ -97,5 +99,24 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            RotateCamera(-1); // Rotate left
+        }
+        else if (Input.GetKey(KeyCode.E))
+        {
+            RotateCamera(1); // Rotate right
+        }
+
+    }
+
+    void RotateCamera(int direction)
+    {
+        // Adjust the camera's rotation around the y-axis
+        Vector3 currentRotation = virtualCamera.transform.rotation.eulerAngles;
+        float newYRotation = currentRotation.y + direction * camRotationSpeed * Time.deltaTime;
+
+        virtualCamera.transform.rotation = Quaternion.Euler(currentRotation.x, newYRotation, currentRotation.z);
     }
 }

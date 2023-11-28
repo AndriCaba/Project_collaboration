@@ -9,6 +9,7 @@ TagManager:
   - Card
   - Hit
   - Enemy_Hit
+  - Spawn
   layers:
   - Default
   - TransparentFX
