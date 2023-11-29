@@ -18,7 +18,7 @@ public class Enemybullet : MonoBehaviour
         bulletRB = GetComponent<Rigidbody>();
 
         // Find the player using the tag "Player"
-        target = GameObject.FindGameObjectWithTag("Hit");
+        target = GameObject.FindGameObjectWithTag("Player_Hitbox");
 
         if (target != null)
         {
