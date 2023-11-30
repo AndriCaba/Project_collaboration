@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,10 +11,19 @@ public class TutorialLevelLoader : MonoBehaviour
 
     public void GoNextScene()
     {
-        StartCoroutine(LoadNewLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        StartCoroutine(LoadNewLevel1(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
-    IEnumerator LoadNewLevel(int LevelIndex)
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        // Check if the player collided with the specific GameObject
+        if (hit.gameObject.CompareTag("NextLevel"))
+        {
+            // Transition to the next scene
+            StartCoroutine(LoadNewLevel2(SceneManager.GetActiveScene().buildIndex + 1));
+        }
+    }
+    IEnumerator LoadNewLevel1(int LevelIndex)
     {
         transition.SetTrigger("Start");
 
@@ -23,6 +33,15 @@ public class TutorialLevelLoader : MonoBehaviour
 
         Time.timeScale = 0f;
         DisableKeyboardInput();
+    }
+
+    IEnumerator LoadNewLevel2(int LevelIndex)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(LevelIndex);
     }
 
     public void DisableKeyboardInput()

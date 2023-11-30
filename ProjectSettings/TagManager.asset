@@ -11,6 +11,8 @@ TagManager:
   - Enemy_Hit
   - Spawn
   - Player_Hitbox
+  - SpawnBoss
+  - NextLevel
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - selectableObjectsLayer
   - Cards
   - PauseMenu
-  - 
+  - NPC
   - 
   - 
   - 

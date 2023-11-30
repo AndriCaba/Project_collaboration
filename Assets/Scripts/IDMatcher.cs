@@ -25,7 +25,7 @@ public class IDMatcher : MonoBehaviour
             {
                 Debug.Log("Match Found!");
                 PlayerAttack attack = GetComponent<PlayerAttack>();
-                objectToMatch = null;
+              
                 
                 if (attack != null)
                 {
@@ -37,8 +37,7 @@ public class IDMatcher : MonoBehaviour
             {
                 Debug.Log("No Match Found. Try Again!");
                 // Reset the references to allow for a new attempt
-                objectToMatch = null;
-               
+                
             }
         }
         else

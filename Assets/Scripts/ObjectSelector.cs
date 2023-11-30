@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static System.TimeZoneInfo;
+using UnityEngine.SceneManagement;
+
 public class ObjectSelector : MonoBehaviour
 
 
 {
 
-    public Animator Card1;
-    public Animator Card2;
-    public Animator Card3;
-    public Animator Card4;
+    public Animator Card1, Card2, Card3, Card4, NPCui;
+
     public LockOnCamera cameraController; // Reference to your camera controller script
     public LayerMask selectableObjectsLayer; // Layer mask for selectable objects
     public GameObject canvas; // The canvas to show/hide when an object is selected
@@ -43,6 +44,8 @@ public class ObjectSelector : MonoBehaviour
                 Card2.SetTrigger("OnClick");
                 Card3.SetTrigger("OnClick");
                 Card4.SetTrigger("OnClick");
+                NPCui.SetTrigger("OnClick");
+                StartCoroutine(TimeStop());
 
                 if (!selectedObject.CompareTag("Untargetable"))
                 {
@@ -72,5 +75,19 @@ public class ObjectSelector : MonoBehaviour
             Card3.SetTrigger("OnUnClick");
             Card4.SetTrigger("OnUnClick");
         }
+    }
+
+    IEnumerator TimeStop()
+    {
+        NPCui.SetTrigger("SlideIn");
+
+        yield return new WaitForSeconds(0.30f);
+
+        Time.timeScale = 0f;
+    }
+
+    public void NextClick()
+    {
+        NPCui.SetTrigger("NextClick");
     }
 }
