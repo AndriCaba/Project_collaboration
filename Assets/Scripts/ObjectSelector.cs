@@ -10,7 +10,8 @@ public class ObjectSelector : MonoBehaviour
 
 {
 
-    public Animator Card1, Card2, Card3, Card4, NPCui;
+    public Animator Card1, Card2, Card3, Card4;
+    public Animator NPC_BG, NPC_Page1, NPC_NextButton;
 
     public LockOnCamera cameraController; // Reference to your camera controller script
     public LayerMask selectableObjectsLayer; // Layer mask for selectable objects
@@ -44,7 +45,6 @@ public class ObjectSelector : MonoBehaviour
                 Card2.SetTrigger("OnClick");
                 Card3.SetTrigger("OnClick");
                 Card4.SetTrigger("OnClick");
-                NPCui.SetTrigger("OnClick");
                 StartCoroutine(TimeStop());
 
                 if (!selectedObject.CompareTag("Untargetable"))
@@ -79,15 +79,12 @@ public class ObjectSelector : MonoBehaviour
 
     IEnumerator TimeStop()
     {
-        NPCui.SetTrigger("SlideIn");
+        NPC_BG.SetTrigger("FadeIn");
+        NPC_Page1.SetTrigger("SlideIn");
+        NPC_NextButton.SetTrigger("SlideIn");
 
         yield return new WaitForSeconds(0.30f);
 
         Time.timeScale = 0f;
-    }
-
-    public void NextClick()
-    {
-        NPCui.SetTrigger("NextClick");
     }
 }

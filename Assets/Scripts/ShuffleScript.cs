@@ -5,7 +5,7 @@ using static System.TimeZoneInfo;
 
 public class ShuffleScript : MonoBehaviour
 {
-    public Animator animation;
+    public new Animator animation;
     public float animationTime;
 
     public void HideCards()

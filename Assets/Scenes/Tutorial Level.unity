@@ -9843,6 +9843,7 @@ MonoBehaviour:
   Card2: {fileID: 986054845}
   Card3: {fileID: 1584359476}
   Card4: {fileID: 2130098916}
+  NPCui: {fileID: 1569577899}
   cameraController: {fileID: 1866128780}
   selectableObjectsLayer:
     serializedVersion: 2
