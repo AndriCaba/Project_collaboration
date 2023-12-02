@@ -108,7 +108,6 @@ public class PlayerMovement : MonoBehaviour
         {
             RotateCamera(1); // Rotate right
         }
-
     }
 
     void RotateCamera(int direction)

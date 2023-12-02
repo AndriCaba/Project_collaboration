@@ -6,10 +6,7 @@ using static System.TimeZoneInfo;
 using UnityEngine.SceneManagement;
 
 public class ObjectSelector : MonoBehaviour
-
-
 {
-
     public Animator Card1, Card2, Card3, Card4;
     public Animator NPC_BG, NPC_Page1, NPC_NextButton;
 
@@ -45,7 +42,6 @@ public class ObjectSelector : MonoBehaviour
                 Card2.SetTrigger("OnClick");
                 Card3.SetTrigger("OnClick");
                 Card4.SetTrigger("OnClick");
-                StartCoroutine(TimeStop());
 
                 if (!selectedObject.CompareTag("Untargetable"))
                 {
@@ -75,16 +71,5 @@ public class ObjectSelector : MonoBehaviour
             Card3.SetTrigger("OnUnClick");
             Card4.SetTrigger("OnUnClick");
         }
-    }
-
-    IEnumerator TimeStop()
-    {
-        NPC_BG.SetTrigger("FadeIn");
-        NPC_Page1.SetTrigger("SlideIn");
-        NPC_NextButton.SetTrigger("SlideIn");
-
-        yield return new WaitForSeconds(0.30f);
-
-        Time.timeScale = 0f;
     }
 }
