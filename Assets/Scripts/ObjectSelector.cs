@@ -18,15 +18,22 @@ public class ObjectSelector : MonoBehaviour
 
     private bool isCanvasVisible = false; // Track the canvas visibility
 
+
+
     private void Start()
     {
+        LockOnCamera LockCamera = cameraController.GetComponent<LockOnCamera>();
+        LockCamera.enabled = false;
         canvas.SetActive(false); // Initially hide the canvas
     }
 
     private void Update()
     {
+        LockOnCamera LockCamera = cameraController.GetComponent<LockOnCamera>();
         if (Input.GetMouseButtonDown(0)) // Left mouse button click
         {
+          
+            LockCamera.enabled = true;
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
