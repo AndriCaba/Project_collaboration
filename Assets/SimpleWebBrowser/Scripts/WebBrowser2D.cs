@@ -349,18 +349,18 @@ namespace SimpleWebBrowser
             var _raycaster = GetComponentInParent<GraphicRaycaster>();
             var _input = FindObjectOfType<StandaloneInputModule>();
 
-            if (_raycaster != null && _input != null && _mainEngine.Initialized)
+            if (_raycaster != null && _input != null && _mainEngine != null && _mainEngine.Initialized)
             {
                 while (Application.isPlaying)
                 {
                     Vector2 localPos = GetScreenCoords(_raycaster, _input);
 
-                    int px = (int) localPos.x;
-                    int py = (int) localPos.y;
+                    int px = (int)localPos.x;
+                    int py = (int)localPos.y;
 
                     ProcessScrollInput(px, py);
 
-                    if (posX != px || posY != py)
+                    if (_mainEngine != null && posX != px || posY != py)
                     {
                         MouseMessage msg = new MouseMessage
                         {
@@ -368,7 +368,6 @@ namespace SimpleWebBrowser
                             X = px,
                             Y = py,
                             GenericType = MessageLibrary.BrowserEventType.Mouse,
-                            // Delta = e.Delta,
                             Button = MouseButton.None
                         };
 
@@ -381,15 +380,19 @@ namespace SimpleWebBrowser
 
                         posX = px;
                         posY = py;
-                        _mainEngine.SendMouseEvent(msg);
+
+                        if (_mainEngine != null)
+                        {
+                            _mainEngine.SendMouseEvent(msg);
+                        }
                     }
 
-                    yield return 0;
+                    yield return null;
                 }
             }
-            //  else
-            //      UnityEngine.Debug.LogWarning("Could not find GraphicRaycaster and/or StandaloneInputModule");
         }
+
+
 
         public void OnPointerDown(PointerEventData data)
         {
