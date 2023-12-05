@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ObjectSelector : MonoBehaviour
 {
-    public Animator Card1, Card2, Card3, Card4;
-    public Animator NPC_BG, NPC_Page1, NPC_NextButton;
+    
 
     public LockOnCamera cameraController; // Reference to your camera controller script
     public LayerMask selectableObjectsLayer; // Layer mask for selectable objects
@@ -45,10 +44,7 @@ public class ObjectSelector : MonoBehaviour
                 // Toggle canvas visibility when an object is selected
                 isCanvasVisible = !isCanvasVisible;
                 canvas.SetActive(isCanvasVisible);
-                Card1.SetTrigger("OnClick");
-                Card2.SetTrigger("OnClick");
-                Card3.SetTrigger("OnClick");
-                Card4.SetTrigger("OnClick");
+               
 
                 if (!selectedObject.CompareTag("Untargetable"))
                 {
@@ -70,13 +66,11 @@ public class ObjectSelector : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1)) // Right mouse button click to clear the target
         {
+            LockCamera.enabled = false;
             canvas.SetActive(false);
             isCanvasVisible = false;
             cameraController.ClearTarget();
-            Card1.SetTrigger("OnUnClick");
-            Card2.SetTrigger("OnUnClick");
-            Card3.SetTrigger("OnUnClick");
-            Card4.SetTrigger("OnUnClick");
+      
         }
     }
 }

@@ -1,7 +1,5 @@
 using Cinemachine;
 using System.Collections;
-using System.Collections.Generic;
-using System.Net.Sockets;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -14,12 +12,9 @@ public class PlayerMovement : MonoBehaviour
 
     public float camRotationSpeed;
 
-    //public KeyCode lookRightKey; // Key to make the camera look right
-    //public KeyCode lookLeftKey; // Key to make the camera look left
-
     public float dashSpeed;
     public float dashTime;
-    
+
     CharacterController characterController;
     private Animator animator;
 
@@ -28,10 +23,11 @@ public class PlayerMovement : MonoBehaviour
     private bool isKeyDisabled = false;
     private float disableTimer = 0.0f;
 
+    private Quaternion targetCameraRotation;
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
     }
@@ -39,15 +35,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
         Vector3 cameraForward = Camera.forward;
         cameraForward.y = 0f;
 
-        Vector3 movementDirection = (cameraForward.normalized * verticalInput  + Camera.right.normalized * horizontalInput);
-        
+        Vector3 movementDirection = (cameraForward.normalized * verticalInput + Camera.right.normalized * horizontalInput);
+
         float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed;
         movementDirection.Normalize();
 
@@ -108,6 +103,9 @@ public class PlayerMovement : MonoBehaviour
         {
             RotateCamera(1); // Rotate right
         }
+
+        // Smoothly rotate the camera
+        virtualCamera.transform.rotation = Quaternion.Slerp(virtualCamera.transform.rotation, targetCameraRotation, camRotationSpeed * Time.deltaTime);
     }
 
     void RotateCamera(int direction)
@@ -116,6 +114,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 currentRotation = virtualCamera.transform.rotation.eulerAngles;
         float newYRotation = currentRotation.y + direction * camRotationSpeed * Time.deltaTime;
 
-        virtualCamera.transform.rotation = Quaternion.Euler(currentRotation.x, newYRotation, currentRotation.z);
+        targetCameraRotation = Quaternion.Euler(currentRotation.x, newYRotation, currentRotation.z);
     }
 }

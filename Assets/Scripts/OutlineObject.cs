@@ -13,18 +13,15 @@ public class OutlineSelection : MonoBehaviour
 
     void Update()
     {
-        HandleHighlighting();
-        HandleSelection();
-
-        if (PauseMenu.GameIsPaused == true)
+        if (PauseMenu.GameIsPaused)
         {
-            OutlineSelection outlineSelection = GetComponent<OutlineSelection>();
-            outlineSelection.enabled = false;
+            enabled = false;  // Disable the script when the game is paused
         }
-        if (PauseMenu.GameIsPaused == false)
+        else
         {
-            OutlineSelection outlineSelection = GetComponent<OutlineSelection>();
-            outlineSelection.enabled = true;
+            enabled = true;   // Enable the script when the game is not paused
+            HandleHighlighting();
+            HandleSelection();
         }
     }
 

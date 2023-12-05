@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class billboard : MonoBehaviour
+public class Billboard : MonoBehaviour
 {
-    public Transform cam; 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform cam;
 
-    // Update is called once per frame
     void Update()
     {
-        transform.LookAt(transform.position + cam.forward);
+        // Ensure the camera reference is not null
+        if (cam != null)
+        {
+            // Face the camera
+            transform.LookAt(cam);
+        }
+        else
+        {
+            Debug.LogError("Camera reference is null. Assign the camera in the Inspector.");
+        }
     }
 }
