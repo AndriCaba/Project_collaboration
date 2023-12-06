@@ -10,18 +10,23 @@ public class QuizManager : MonoBehaviour
     public GameObject[] options;
     public GameObject QuizPanel;
     public GameObject GoPanel;
+    public GameObject Proceed;
     public int currentQuestion;
-  
+    public GameObject popup;
+    public Animator animator;
     public Text QuestionTxt;
     public Text ScoreTxt;
 
     int totalQuestions = 0;
+    int passingScore =  3;
+
     public int score;
 
     private void Start() {
 
         totalQuestions = QnA.Count;
         GoPanel.SetActive(false);
+        Proceed.SetActive(false);
         generateQuestion();
     
     
@@ -31,11 +36,29 @@ public class QuizManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
+
+    public void ProceedNextlevel()
+    {
+        popup.SetActive(false);
+        animator.SetTrigger("DoneAssesment");
+       
+
+    }
     void GameOver() {
 
         GoPanel.SetActive(true);
         QuizPanel.SetActive(false);
         ScoreTxt.text = score + " / " + totalQuestions;
+        if (score >= passingScore)
+        {
+            Proceed.SetActive(true);
+
+        }
+        else {
+
+            Proceed.SetActive(false);
+
+        }
 
 
     }
