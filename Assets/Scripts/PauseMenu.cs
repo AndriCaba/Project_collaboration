@@ -55,9 +55,20 @@ public class PauseMenu : MonoBehaviour
     {
 
     }
-    public void Quit()
+    
+    public void QuitFromTutorial()
     {
         StartCoroutine(LoadPreviousLevel(SceneManager.GetActiveScene().buildIndex - 1));
+        Resume();
+    }
+    public void QuitFromLevel1()
+    {
+        StartCoroutine(LoadPreviousLevel(SceneManager.GetActiveScene().buildIndex - 2));
+        Resume();
+    }
+    public void QuitFromLevel2()
+    {
+        StartCoroutine(LoadPreviousLevel(SceneManager.GetActiveScene().buildIndex - 3));
         Resume();
     }
 

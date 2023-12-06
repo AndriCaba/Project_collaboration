@@ -663,11 +663,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97677316}
   m_CullTransparentMesh: 1
---- !u!4 &101302745 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1439093765448997266, guid: de969bbfbe50de4488183c8b156e5516, type: 3}
-  m_PrefabInstance: {fileID: 5861575353579736702}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &160373002
 GameObject:
   m_ObjectHideFlags: 0
@@ -4737,7 +4732,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 101302745}
+  - {fileID: 5861575353579736703}
   m_Father: {fileID: 1682636056}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1237358584
@@ -4907,8 +4902,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2087895283}
   outlineSelection: {fileID: 1237358585}
-  objectSelector: {fileID: 0}
-  lockOnCamera: {fileID: 0}
+  objectSelector: {fileID: 896982915}
+  lockOnCamera: {fileID: 896982914}
   transition: {fileID: 1994078171}
   transitionTime: 1
 --- !u!1 &1290292642
@@ -4996,7 +4991,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1245851550}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: QuitFromTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8864,6 +8859,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de969bbfbe50de4488183c8b156e5516, type: 3}
+--- !u!4 &5861575353579736703 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8650647727146930274, guid: de969bbfbe50de4488183c8b156e5516, type: 3}
+  m_PrefabInstance: {fileID: 5861575353579736702}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7359994079300620531
 PrefabInstance:
   m_ObjectHideFlags: 0

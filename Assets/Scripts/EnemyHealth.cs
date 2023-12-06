@@ -9,7 +9,6 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
     public Healthbar healthbar;
-    public NextLevelSpawner nextLevelSpawner;
 
     void Start()
     {

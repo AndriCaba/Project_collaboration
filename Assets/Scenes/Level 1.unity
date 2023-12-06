@@ -602,7 +602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4594338595561499581, guid: 6e49958232aa9dd4191c65a2273d2236, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6017642712208640626, guid: 6e49958232aa9dd4191c65a2273d2236, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28898,7 +28898,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 261700538845063333, guid: 7213a6d5f4d943143bb7f139f02825d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 809216450}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 642448958367674911, guid: 7213a6d5f4d943143bb7f139f02825d4, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1606933291}
   m_SourcePrefab: {fileID: 100100000, guid: 7213a6d5f4d943143bb7f139f02825d4, type: 3}
 --- !u!1001 &1291654629
 PrefabInstance:
@@ -32281,7 +32284,7 @@ MonoBehaviour:
   outlineSelection: {fileID: 453087671}
   objectSelector: {fileID: 1799836729}
   lockOnCamera: {fileID: 1799836728}
-  transition: {fileID: 0}
+  transition: {fileID: 36139047}
   transitionTime: 1
 --- !u!114 &1429511290
 MonoBehaviour:
@@ -35458,6 +35461,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5447768829328557966, guid: 7a9c2872915ad414e83307c9864abb76, type: 3}
   m_PrefabInstance: {fileID: 1599577659}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1606933281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 642448958367674911, guid: 7213a6d5f4d943143bb7f139f02825d4, type: 3}
+  m_PrefabInstance: {fileID: 1290242603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1606933291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606933281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f856a5ba069e67e40a40999f8c9669b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextLevel: {fileID: 2100724776}
 --- !u!1001 &1614441035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44255,7 +44276,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1429511289}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: QuitFromLevel1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
