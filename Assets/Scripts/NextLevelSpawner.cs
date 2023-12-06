@@ -21,6 +21,6 @@ public class NextLevelSpawner : MonoBehaviour
     private void OnDestroy()
     {
         // Trigger the animation
-        NextLevel.SetTrigger("WhenKilled");
+        NextLevel.SetTrigger("OnKill");
     }
 }
