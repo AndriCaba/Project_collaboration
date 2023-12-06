@@ -40,7 +40,7 @@ public class QuizManager : MonoBehaviour
     public void ProceedNextlevel()
     {
         popup.SetActive(false);
-        animator.SetTrigger("DoneAssesment");
+        animator.SetTrigger("DoneAssessment");
        
 
     }
