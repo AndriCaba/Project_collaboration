@@ -13,6 +13,21 @@ public class NewGameLoader : MonoBehaviour
         StartCoroutine(LoadNewLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
+    public void RestartButton()
+    {
+        StartCoroutine(LoadNewLevel(SceneManager.GetActiveScene().buildIndex));
+    }
+
+    public void MainMenuFromLevel1()
+    {
+        StartCoroutine(LoadNewLevel(SceneManager.GetActiveScene().buildIndex - 2));
+    }
+
+    public void MainMenuFromLevel2()
+    {
+        StartCoroutine(LoadNewLevel(SceneManager.GetActiveScene().buildIndex - 3));
+    }
+
     IEnumerator LoadNewLevel(int LevelIndex)
     {
         transition.SetTrigger("Start");

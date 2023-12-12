@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-  
-
-
+    public GameObject GameOverUI;
     public int maxHealth = 100; // Maximum health of the object
     public int currentHealth; // Current health of the object
 
@@ -34,6 +32,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+
         }
     }
 
@@ -42,6 +41,7 @@ public class Health : MonoBehaviour
     {
         // You can implement death behavior here, such as playing an animation, spawning effects, or destroying the object.
         Destroy(gameObject);
+        GameOverUI.SetActive(true);
     }
 
 
