@@ -2785,6 +2785,7 @@ GameObject:
   - component: {fileID: 2080024687}
   - component: {fileID: 2080024686}
   - component: {fileID: 2080024685}
+  - component: {fileID: 2080024688}
   m_Layer: 5
   m_Name: Load Game Button
   m_TagString: Untagged
@@ -2856,9 +2857,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2969154784354183939}
-        m_TargetAssemblyTypeName: TutorialLevelLoader, Assembly-CSharp
-        m_MethodName: GoNextScene
+      - m_Target: {fileID: 2080024688}
+        m_TargetAssemblyTypeName: SaveLoadManager, Assembly-CSharp
+        m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2906,6 +2907,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080024683}
   m_CullTransparentMesh: 1
+--- !u!114 &2080024688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080024683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78bbbb850560ff644918fbabba70c946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2969154784354183936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2924,7 +2937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4594338595561499581, guid: 6e49958232aa9dd4191c65a2273d2236, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5349395656586164207, guid: 6e49958232aa9dd4191c65a2273d2236, type: 3}
       propertyPath: m_Alpha
