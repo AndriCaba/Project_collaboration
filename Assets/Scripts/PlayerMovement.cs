@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    public GameObject FootstepsAudio;
+    public GameObject RollSoundEffect;
+
     public CinemachineVirtualCamera virtualCamera;
     public Transform Camera;
 
@@ -30,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
+        RollSoundEffect.SetActive(false);
     }
 
     // Update is called once per frame
@@ -52,12 +57,14 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsMoving", true);
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
+            FootstepsAudio.SetActive(true);
         }
         else
         {
             animator.SetBool("IsMoving", false);
+            FootstepsAudio.SetActive(false);
         }
 
         if (isKeyDisabled)
@@ -69,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
             // If the timer reaches 0 or less, re-enable the key
             if (disableTimer <= 0)
             {
+                RollSoundEffect.SetActive(false);
                 isKeyDisabled = false;
             }
         }
@@ -80,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Dash());
                 isKeyDisabled = true;
                 animator.SetBool("IsRolling", true);
+                RollSoundEffect.SetActive(true);
                 disableTimer = disableTime;
             }
 
