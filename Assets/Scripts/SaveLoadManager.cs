@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SaveLoadManager : MonoBehaviour
 {
     private const string LEVEL_KEY = "SavedLevel";
+    public Text Leveltext;
+    public GameObject LevelObject;
 
     // Save the current level
     public void SaveLevel()
@@ -14,7 +17,14 @@ public class SaveLoadManager : MonoBehaviour
         PlayerPrefs.SetInt(LEVEL_KEY, currentLevel);
         PlayerPrefs.Save();
 
-        Debug.Log("Level saved: " + currentLevel);
+        Leveltext.text = "Level saved: " + currentLevel;
+        LevelObject.SetActive(true);
+        StartCoroutine(WaitForDisable());
+    }
+    IEnumerator WaitForDisable()
+    {
+        yield return new WaitForSeconds(3f);
+        LevelObject.SetActive(false);
     }
 
     // Load and play the saved level
