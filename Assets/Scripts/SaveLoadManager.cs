@@ -8,7 +8,7 @@ public class SaveLoadManager : MonoBehaviour
 {
     private const string LEVEL_KEY = "SavedLevel";
     public Text Leveltext;
-    public GameObject LevelObject;
+    public Animator SaveGame;
 
     // Save the current level
     public void SaveLevel()
@@ -18,14 +18,11 @@ public class SaveLoadManager : MonoBehaviour
         PlayerPrefs.Save();
 
         Leveltext.text = "Level saved: " + currentLevel;
-        LevelObject.SetActive(true);
-        StartCoroutine(WaitForDisable());
+        SaveGame.SetTrigger("Save Clicked");
+        SaveAnimation();
+
     }
-    IEnumerator WaitForDisable()
-    {
-        yield return new WaitForSeconds(3f);
-        LevelObject.SetActive(false);
-    }
+    
 
     // Load and play the saved level
     public void LoadLevel()
@@ -35,11 +32,15 @@ public class SaveLoadManager : MonoBehaviour
             int savedLevel = PlayerPrefs.GetInt(LEVEL_KEY);
             SceneManager.LoadScene(savedLevel);
 
-            Debug.Log("Level loaded: " + savedLevel);
+            Leveltext.text = "Level loaded: " + savedLevel;
+            SaveGame.SetTrigger("Save Clicked");
+            SaveAnimation();
         }
         else
         {
-            Debug.LogWarning("No saved level found");
+            Leveltext.text = "No saved game found.";
+            SaveGame.SetTrigger("Save Clicked");
+            SaveAnimation();
         }
     }
 
@@ -50,5 +51,10 @@ public class SaveLoadManager : MonoBehaviour
         PlayerPrefs.Save();
 
         Debug.Log("Saved level cleared");
+    }
+
+    IEnumerator SaveAnimation()
+    {
+        yield return new WaitForSeconds(3f);
     }
 }
